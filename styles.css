@@ -1,0 +1,62 @@
+/* ============================================================
+     TOKENS — extraídos del material real de La Vida Es Un Vals:
+     - ink: techo y sillas negras del local
+     - maroon: cojines rojos de las sillas
+     - brick: muro de madera OSB del interior
+     - gold: rosas del letrero de neón de la fachada
+     - sage: setos verdes de la entrada
+  ============================================================ */
+  html { scroll-behavior: smooth; }
+  body { background: #F5F0E6; color: #1E1A17; font-family: 'Inter', sans-serif; }
+  ::selection { background: #8B2A2A; color: #F5F0E6; }
+
+  .font-display { font-family: 'Fraunces', serif; }
+  .font-brand { font-family: 'Anton', sans-serif; letter-spacing: .01em; }
+  .font-mono-label { font-family: 'Space Mono', monospace; letter-spacing: .08em; }
+
+  .hairline { border-color: rgba(30,26,23,.14); }
+
+  #site-header { background: #F5F0E6; box-shadow: 0 1px 0 rgba(30,26,23,.1); }
+
+  /* ===================== TAB PANELS (SPA) ===================== */
+  .tab-panel { display: none; animation: fadeInPanel .5s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeInPanel { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .nav-link { color: #1E1A17; opacity: .75; transition: opacity .2s ease, color .2s ease; padding: 6px 0; position: relative; }
+  .nav-link:hover { opacity: 1; color: #8B2A2A; }
+  .nav-link.active { opacity: 1; color: #8B2A2A; }
+  .nav-link.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: #8B2A2A; }
+
+  .menu-toggle { color: #1E1A17; }
+  .main-nav.open {
+    display: flex !important; position: fixed; top: 80px; left: 0; right: 0; z-index: 39;
+    background: #F5F0E6; flex-direction: column; align-items: flex-start; gap: 0;
+    padding: 8px 0; box-shadow: 0 1px 0 rgba(30,26,23,.1);
+  }
+  .main-nav.open .nav-link { width: 100%; padding: 16px 24px; border-top: 1px solid rgba(30,26,23,.06); }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+  }
+
+  .cat-btn[data-active="true"] { background: #1E1A17; color: #F5F0E6; }
+  .cat-btn[data-active="true"] .cat-count { color: #D89B3C; }
+
+  #cart-drawer { transform: translateX(100%); transition: transform .35s ease; }
+  #cart-drawer.open { transform: translateX(0); }
+  #cart-overlay { opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+  #cart-overlay.open { opacity: 1; pointer-events: auto; }
+
+  #product-modal { opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  #product-modal.open { opacity: 1; pointer-events: auto; }
+  #product-modal .modal-card { transform: translateY(24px) scale(.98); transition: transform .3s ease; }
+  #product-modal.open .modal-card { transform: translateY(0) scale(1); }
+
+  input[type="radio"]:focus-visible + label, button:focus-visible, a:focus-visible {
+    outline: 2px solid #8B2A2A; outline-offset: 2px;
+  }
+  #copy-toast { transition: opacity .3s ease, transform .3s ease; }
